@@ -11,7 +11,7 @@ const STATIC_DATA_URL = 'assets/hous_test.json';
 export class HouseholdsListComponent implements OnInit {
 
   simulations: any[];
-  tableColumns = ['simName', 'householdType'];
+  tableColumns = ['simName', 'householdType', 'appliancesCount', 'availabilitiesCount', 'resultLoadCurveCreationDate'];
 
   householdTypeIcon(simulationType) {
     return simulationType === 'HOUSEHOLD_SINGLE' ? 'person' : 'people_alt';

@@ -10,6 +10,18 @@
         <mat-icon>{{householdTypeIcon(row.type)}}</mat-icon>
       </td>
     </ng-container>
+    <ng-container matColumnDef="appliancesCount">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header># of Appliances</th>
+      <td mat-cell *matCellDef="let row">{{row.appliances.length}}</td>
+    </ng-container>
+    <ng-container matColumnDef="availabilitiesCount">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header># of Availabilities</th>
+      <td mat-cell *matCellDef="let row">{{row.availabilities.length}}</td>
+    </ng-container>
+    <ng-container matColumnDef="resultLoadCurveCreationDate">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Load Curve Creation Date</th>
+      <td mat-cell *matCellDef="let row">{{row.resultLoadCurve.creationDate.$date | date:'medium'}}</td>
+    </ng-container>
     <tr mat-header-row *matHeaderRowDef="tableColumns"></tr>
     <tr mat-row *matRowDef="let myRowData; columns: tableColumns"></tr>
 
