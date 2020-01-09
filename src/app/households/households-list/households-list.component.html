@@ -1,5 +1,4 @@
 <div class="container">
-  <h2 class="mat-title">Simulations List</h2>
   <table mat-table [dataSource]="simulations">
     <ng-container matColumnDef="simName">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Name</th>
@@ -11,8 +10,8 @@
         <mat-icon>{{householdTypeIcon(row.type)}}</mat-icon>
       </td>
     </ng-container>
-    <tr mat-header-row *matHeaderRowDef="['simName','householdType']"></tr>
-    <tr mat-row *matRowDef="let myRowData; columns: ['simName','householdType']"></tr>
+    <tr mat-header-row *matHeaderRowDef="tableColumns"></tr>
+    <tr mat-row *matRowDef="let myRowData; columns: tableColumns"></tr>
 
   </table>
 </div>
