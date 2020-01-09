@@ -7,6 +7,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatToolbarModule} from "@angular/material";
 import {NavbarComponent} from "./navbar/navbar.component";
 import {HouseholdsModule} from "./households/households.module";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import {HouseholdsModule} from "./households/households.module";
     NavbarComponent
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     HouseholdsModule,

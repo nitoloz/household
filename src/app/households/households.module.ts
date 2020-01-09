@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import {HouseholdsRoutingModule} from "./households-routing.module";
 import {HouseholdsListComponent} from "./households-list/households-list.component";
 import {HouseholdDetailsComponent} from "./household-details/household-details.component";
+import {MatTableModule} from "@angular/material/table";
+import {MatIconModule} from "@angular/material/icon";
 
 @NgModule({
   declarations: [
@@ -11,7 +13,9 @@ import {HouseholdDetailsComponent} from "./household-details/household-details.c
   ],
   imports: [
     CommonModule,
-    HouseholdsRoutingModule
+    HouseholdsRoutingModule,
+    MatTableModule,
+    MatIconModule
   ]
 })
 export class HouseholdsModule { }
