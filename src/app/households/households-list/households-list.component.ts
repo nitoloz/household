@@ -16,7 +16,7 @@ export class HouseholdsListComponent implements OnInit {
     return simulationType === SIMULATION_TYPE.HOUSEHOLD_SINGLE ? 'person' : 'people_alt';
   }
 
-  constructor(private householdsService: HouseholdsService,
+  constructor(public householdsService: HouseholdsService,
               private router: Router) {
   }
 
