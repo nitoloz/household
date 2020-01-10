@@ -10,7 +10,7 @@ import {HouseholdsService, Simulation} from '../households.service';
 export class HouseholdDetailsComponent implements OnInit {
 
   activityTableColumns = ['name', 'start', 'end', 'type'];
-  applianceTableColumns = ['name', 'inputOn', 'inputOff', 'duration', 'type'];
+  applianceTableColumns = ['name', 'inputOn', 'inputOff', 'duration'];
 
   simulation: Simulation;
   chartData: Series[];
