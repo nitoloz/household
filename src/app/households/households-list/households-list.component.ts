@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-
-const STATIC_DATA_URL = 'assets/hous_test.json';
+import {Router} from '@angular/router';
+import {HouseholdsService, Simulation, SIMULATION_TYPE} from '../households.service';
 
 @Component({
   selector: 'app-households-list',
@@ -10,20 +9,24 @@ const STATIC_DATA_URL = 'assets/hous_test.json';
 })
 export class HouseholdsListComponent implements OnInit {
 
-  simulations: any[];
+  simulations: Simulation[];
   tableColumns = ['simName', 'householdType', 'appliancesCount', 'availabilitiesCount', 'resultLoadCurveCreationDate'];
 
   householdTypeIcon(simulationType) {
-    return simulationType === 'HOUSEHOLD_SINGLE' ? 'person' : 'people_alt';
+    return simulationType === SIMULATION_TYPE.HOUSEHOLD_SINGLE ? 'person' : 'people_alt';
   }
 
-  constructor(private http: HttpClient) {
+  constructor(private householdsService: HouseholdsService,
+              private router: Router) {
   }
 
   ngOnInit() {
-    this.http.get(STATIC_DATA_URL).subscribe((data: any) => {
-      this.simulations = data;
-    });
+    this.householdsService.getData().subscribe(data => this.simulations = data);
+  }
+
+  showDetails(simulation: Simulation) {
+    this.householdsService.selectedSimulation = simulation;
+    this.router.navigate(['/households', simulation._id.$oid]);
   }
 
 }

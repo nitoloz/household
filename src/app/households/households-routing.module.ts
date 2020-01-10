@@ -1,12 +1,13 @@
-import { NgModule }             from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-
-import {HouseholdsListComponent} from "./households-list/households-list.component";
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
+import {CanActivateDetailsService} from './can-activate-details.service';
 import {HouseholdDetailsComponent} from "./household-details/household-details.component";
 
+import {HouseholdsListComponent} from "./households-list/households-list.component";
+
 const householdsRoutes: Routes = [
-  { path: 'households',  component: HouseholdsListComponent },
-  { path: 'households/:id', component: HouseholdDetailsComponent }
+  {path: 'households', component: HouseholdsListComponent},
+  {path: 'households/:id', component: HouseholdDetailsComponent, canActivate: [CanActivateDetailsService]}
 ];
 
 @NgModule({
@@ -17,5 +18,5 @@ const householdsRoutes: Routes = [
     RouterModule
   ]
 })
-export class HouseholdsRoutingModule { }
+export class HouseholdsRoutingModule {}
 

@@ -1,29 +1,29 @@
 <div class="container">
   <table mat-table [dataSource]="simulations">
     <ng-container matColumnDef="simName">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Name</th>
+      <th mat-header-cell *matHeaderCellDef> Name</th>
       <td mat-cell *matCellDef="let row"> {{row.simName}}</td>
     </ng-container>
     <ng-container matColumnDef="householdType">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Household Type</th>
+      <th mat-header-cell *matHeaderCellDef> Household Type</th>
       <td mat-cell *matCellDef="let row">
-        <mat-icon>{{householdTypeIcon(row.type)}}</mat-icon>
+        <mat-icon>{{householdsService.householdTypeIcon(row.type)}}</mat-icon>
       </td>
     </ng-container>
     <ng-container matColumnDef="appliancesCount">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header># of Appliances</th>
+      <th mat-header-cell *matHeaderCellDef># of Appliances</th>
       <td mat-cell *matCellDef="let row">{{row.appliances.length}}</td>
     </ng-container>
     <ng-container matColumnDef="availabilitiesCount">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header># of Availabilities</th>
+      <th mat-header-cell *matHeaderCellDef># of Availabilities</th>
       <td mat-cell *matCellDef="let row">{{row.availabilities.length}}</td>
     </ng-container>
     <ng-container matColumnDef="resultLoadCurveCreationDate">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Load Curve Creation Date</th>
+      <th mat-header-cell *matHeaderCellDef>Load Curve Creation Date</th>
       <td mat-cell *matCellDef="let row">{{row.resultLoadCurve.creationDate.$date | date:'medium'}}</td>
     </ng-container>
     <tr mat-header-row *matHeaderRowDef="tableColumns"></tr>
-    <tr mat-row *matRowDef="let myRowData; columns: tableColumns"></tr>
+    <tr mat-row *matRowDef="let myRowData; columns: tableColumns" (click)="showDetails(myRowData)"></tr>
 
   </table>
 </div>
