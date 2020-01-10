@@ -26,6 +26,7 @@ export class HouseholdDetailsComponent implements OnInit {
 
     this.chartData = [{
       name: 'Load Curve',
+      // TODO use lightingValue, activeOccupancy and occupancy values!
       series: this.simulation.resultLoadCurve.measurements.map(measurement => {
         return {
           name: measurement.time,
