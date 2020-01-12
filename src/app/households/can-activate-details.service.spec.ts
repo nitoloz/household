@@ -7,26 +7,24 @@ import {ActivatedRoute, ActivatedRouteSnapshot, convertToParamMap, Router} from 
 import {of} from "rxjs/internal/observable/of";
 import {Observable} from "rxjs/internal/Observable";
 
-class MockRouter {
+export class MockRouter {
   navigate(path) {
   }
 }
 
 let householdsService: HouseholdsService;
-fdescribe('CanActivateDetailsService', () => {
+let router: Router;
+describe('CanActivateDetailsService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [
         CanActivateDetailsService,
         {provide: HouseholdsService, useClass: MockHouseholdsService},
-        {provide: Router, useClass: MockRouter},
-        {
-          provide: ActivatedRoute,
-          useValue: {snapshot: {paramMap: convertToParamMap({id: '1'})}}
-        },
+        {provide: Router, useClass: MockRouter}
       ]
     });
     householdsService = TestBed.get(HouseholdsService);
+    router = TestBed.get(Router);
   });
 
   it('should return true if selectedSimulation is loaded', () => {
@@ -69,6 +67,7 @@ fdescribe('CanActivateDetailsService', () => {
   });
 
   it('should return false if there is no simulation with given id', () => {
+    spyOn(router, 'navigate');
     spyOn(householdsService, 'getData').and.returnValue(of([{
       _id: {$oid: '3'},
       simName: '',
@@ -91,6 +90,7 @@ fdescribe('CanActivateDetailsService', () => {
       expect(result).toBeFalsy();
       expect(householdsService.selectedSimulation._id.$oid).toBe('2');
       expect(householdsService.getData).toHaveBeenCalled();
+      expect(router.navigate).toHaveBeenCalledWith(['/households']);
     })
   });
 });

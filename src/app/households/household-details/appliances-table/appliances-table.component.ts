@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Appliance, Availability} from "../../households.service";
+import {Appliance} from "../../households.service";
 
 @Component({
   selector: 'app-appliances-table',

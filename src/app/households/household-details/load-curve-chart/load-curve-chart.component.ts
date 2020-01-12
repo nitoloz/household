@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Series} from "@swimlane/ngx-charts";
-import {Appliance, Measurement} from "../../households.service";
+import {Measurement} from "../../households.service";
 
 @Component({
   selector: 'app-load-curve-chart',

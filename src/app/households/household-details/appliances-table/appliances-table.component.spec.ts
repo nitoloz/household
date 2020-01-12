@@ -1,6 +1,8 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { AppliancesTableComponent } from './appliances-table.component';
+import {AppliancesTableComponent} from './appliances-table.component';
+import {MatTableModule} from "@angular/material";
+import {CUSTOM_ELEMENTS_SCHEMA} from "@angular/core";
 
 describe('AppliancesTableComponent', () => {
   let component: AppliancesTableComponent;
@@ -8,9 +10,11 @@ describe('AppliancesTableComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AppliancesTableComponent ]
+      imports: [MatTableModule],
+      declarations: [AppliancesTableComponent],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
