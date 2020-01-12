@@ -7,7 +7,7 @@
     <ng-container matColumnDef="householdType">
       <th mat-header-cell *matHeaderCellDef> Household Type</th>
       <td mat-cell *matCellDef="let row">
-        <mat-icon>{{householdsService.householdTypeIcon(row.type)}}</mat-icon>
+        <mat-icon>{{householdsService.getHouseholdTypeIcon(row.type)}}</mat-icon>
       </td>
     </ng-container>
     <ng-container matColumnDef="appliancesCount">

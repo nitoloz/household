@@ -89,7 +89,7 @@ export class HouseholdsService {
     return this.http.get<Simulation[]>(STATIC_DATA_URL);
   }
 
-  householdTypeIcon(simulationType) {
+  getHouseholdTypeIcon(simulationType) {
     return simulationType === SIMULATION_TYPE.HOUSEHOLD_SINGLE ? 'person' : 'people_alt';
   }
 }
